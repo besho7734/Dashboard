@@ -1,0 +1,55 @@
+﻿@page
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model shoptask.Pages.Companies.ViewcompanyModel
+@{
+    Layout = "_DashBoard";
+}
+<div class="dash-content">
+    <div class="overview">
+        <div class="title">
+            <i class="uil uil-tachometer-fast-alt"></i>
+            <span class="text">All Companies</span>
+        </div>
+    </div>
+    <div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td class="table-light">id</td>
+                    <td class="table-light">Name</td>
+                    <td class="table-light">operation</td>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var Company in Model.AllCompany)
+                    {
+                    <tr>
+                        <td>@Company.Id</td>
+                        <td>@Company.Name</td>
+                        <td>
+
+
+                            <a class="btn btn-success" asp-page="/Companies/Edite" asp-route-Id="@Company.Id" role="button">
+                                <span class="material-symbols-outlined">
+                                    Edit
+                                </span>
+                            </a>
+                            <a class="btn btn-danger"asp-route-id="@Company.Id" role="button">
+                                <span class="material-symbols-outlined">
+                                    Delete
+                                </span>
+                            </a>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+
+
+
+
+</div>
